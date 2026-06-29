@@ -18,9 +18,9 @@ if cbAll:
 else:
     selected_layers = [type for type in area_list if st.sidebar.checkbox(type)]
 
-new_df = []
+new_df = {}
 for layer in selected_layers:
-    new_df += [df[layer]]
+    new_df[layer] = df[layer]
 
 st.write(new_df)
 
