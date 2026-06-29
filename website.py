@@ -9,7 +9,7 @@ st.title("NEXT Group Sales Analysis")
 df = pd.read_csv("group_sales.csv")
 df["Year"] = pd.to_datetime(df["Year"], format="%Y")
 
-area_list = ["<select>", "Retail Stores", "Online (UK)", "Online (International)", "NEXT Finance", "Other business activities", "NEXT's share of sales from investments", "Total Group sales"]
+area_list = ["Retail Stores", "Online (UK)", "Online (International)", "NEXT Finance", "Other business activities", "NEXT's share of sales from investments", "Total Group sales"]
 cbAll = st.sidebar.checkbox("Select All")
 
 if cbAll:
