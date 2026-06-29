@@ -24,6 +24,8 @@ for layer in selected_layers:
 new_df = pd.concat(new_df)
 new_df = pd.DataFrame(new_df)
 
+st.write(new_df)
+
 chart = (alt.Chart(new_df)
          .mark_area(opacity=0.6)
          .encode(
