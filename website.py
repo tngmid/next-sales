@@ -24,6 +24,6 @@ if selected_layers != []:
         new_df[layer] = df[layer]
     new_df["Year"] = pd.to_datetime(new_df["Year"], format="%Y")
     
-    st.line_chart(new_df, x="Year")
+    st.line_chart(new_df, x="Year", y_label="Sales (£m)")
 else:
     st.write("Please add more arguments on the left.")
