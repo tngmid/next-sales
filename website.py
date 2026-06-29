@@ -13,9 +13,12 @@ area_list = ["Retail Stores", "Online (UK)", "Online (International)", "NEXT Fin
 cbAll = st.sidebar.checkbox("Select All")
 
 if cbAll:
+    print(first)
     selected_layers = [type for type in area_list if st.sidebar.checkbox(type, value=cbAll, disabled=True)]
 else:
+    print(second)
     selected_layers = [type for type in area_list if st.sidebar.checkbox(type)]
 
-print(selected_layers)
+for layer in selected_layers:
+    print(layer)
 st.line_chart(df, x="Year")
