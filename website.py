@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 
+with st.sidebar:
+    st.write("Welcome!")
+
 st.title("NEXT Group Sales Analysis")
 
 df = pd.read_csv("group_sales.csv")
