@@ -21,6 +21,8 @@ else:
 new_df = []
 for layer in selected_layers:
     new_df += [df[layer]]
+new_df = pd.concat(new_df)
+new_df = pd.DataFrame(new_df)
 
 chart = (alt.Chart(new_df)
          .mark_area(opacity=0.6)
