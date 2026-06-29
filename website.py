@@ -21,4 +21,6 @@ else:
 
 for layer in selected_layers:
     print(layer)
-st.line_chart(df, x="Year")
+
+
+#st.line_chart(df, x="Year")
