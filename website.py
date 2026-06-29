@@ -25,4 +25,4 @@ new_df["Year"] = pd.to_datetime(new_df["Year"], format="%Y")
 
 st.write(new_df)
 
-st.line_chart(df, x="Year")
+st.line_chart(new_df, x="Year")
