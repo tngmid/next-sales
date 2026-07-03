@@ -8,6 +8,7 @@ with st.sidebar:
 st.title("NEXT Group Sales Analysis")
 
 df = pd.read_csv("group_sales.csv")
+st.write(df)
 df.reset_index(level=0, inplace=True)
 st.write(df)
 df["Year"] = pd.to_datetime(df["Year"], format="%Y")
