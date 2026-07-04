@@ -5,6 +5,8 @@ with st.sidebar:
     st.write("Welcome!")
 
 st.title("NEXT Group Sales Analysis")
+
+st.write("Welcome to the NEXT Group Sales Analysis page. Navigate to the left to pick areas of NEXT's sales you wish to view the yearly trend. The GitHub repository can be found at https://github.com/tngmid/next-sales")
     
 df = pd.read_csv("group_sales.csv")
 df["Year"] = ["2026", "2025", "2024", "2023", "2022"]
