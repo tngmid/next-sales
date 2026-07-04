@@ -30,7 +30,7 @@ if selected_layers != []:
     show_prediction = st.sidebar.toggle("Show 10-year prediction")
     
     if show_prediction:
-        years = new_df["Year"].dt.year.values.reshape(-1, 1)
+        years = new_df["Year"].year.values.reshape(-1, 1)
         future_years = np.arange(2027, 2037).reshape(-1, 1)
         
         historical = new_df.copy()
