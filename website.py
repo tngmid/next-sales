@@ -40,11 +40,11 @@ if selected_layers != []:
             "Year": pd.to_datetime(future_years.flatten(), format="%Y"),
             "Type": "Prediction"
         })
-    for layer in selected_layers:
-        model = LinearRegression()
-        model.fit(years, new_df[layer])
-
-        prediction[layer] = model.predict(future_years)
+        for layer in selected_layers:
+            model = LinearRegression()
+            model.fit(years, new_df[layer])
+    
+            prediction[layer] = model.predict(future_years)
 
     plot_df = pd.concat([historical, prediction], ignore_index=True)
 
