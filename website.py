@@ -1,6 +1,8 @@
 import streamlit as st
 import altair as alt
 import pandas as pd
+from sklearn.linear_model import LinearRegression
+import numpy as np
 
 with st.sidebar:
     st.write("Welcome!")
@@ -24,7 +26,27 @@ if selected_layers != []:
     for layer in selected_layers:
         new_df[layer] = df[layer]
     new_df["Year"] = pd.to_datetime(new_df["Year"], format="%Y")
+
+    show_prediction = st.sidebar.toggle("Show 10-year prediction")
     
-    st.line_chart(new_df, x="Year", y_label="Sales (£m)")
+    if show_prediction:
+        years = new_df["Year"].dt.year.values.reshape(-1, 1)
+        future_years = np.arange(2027, 2037).reshape(-1, 1)
+        
+        historical = new_df.copy()
+        historical["Type"] = "Historical"
+        
+        prediction = pd.DataFrame({
+            "Year": pd.to_datetime(future_years.flatten(), format="%Y"),
+            "Type": "Prediction"
+        })
+    for layer in selected_layers:
+        model = LinearRegression()
+        model.fit(years, new_df[layer])
+
+        prediction[layer] = model.predict(future_years)
+
+    plot_df = pd.concat([historical, prediction], ignore_index=True)
+
 else:
     st.write("Please add more arguments on the left.")
